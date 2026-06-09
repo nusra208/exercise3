@@ -1,10 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker-agent'
+    }
 
     stages {
-        stage('Testing Branch') {
+        stage('Test') {
             steps {
-                sh 'echo this is a test branch'
+                sh 'echo Running on Docker Agent'
+                sh 'sleep 120'
+                sh 'echo Finished'
             }
         }
     }
